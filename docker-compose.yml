@@ -16,7 +16,7 @@ services:
       - db
     ports:
       - '5000:80'
-    entrypoint: ./scripts/wait.sh db:5432 -- npm start
+    entrypoint: ["bash", "/usr/src/electron-release-server/scripts/wait.sh", "db:5432", "--", "npm", "start"]
   db:
     image: postgres
     environment:
